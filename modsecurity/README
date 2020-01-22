@@ -1,0 +1,11 @@
+#Para hacer build de la imagen ejecutar
+docker build -t modsec-auto .
+
+#Correr un contenedor
+sudo docker run -d --name modec-auto modec-auto
+
+#Entrar al contendor
+docker exec -it modec-auto /bin/bash
+
+#Copiar los logs al host
+docker cp modsec:/opt/modsecurity/var/audit logs

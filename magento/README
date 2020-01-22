@@ -1,0 +1,16 @@
+docker build -t magento-auto .
+
+sudo docker run -d --net dockerNet --ip 172.18.0.2 --name magento-auto magento-auto
+sudo docker run -d --name magento-auto magento-auto
+
+docker inspect --format '{{ .NetworkSettings.Networks.dockerNet.IPAddress }}' magento-auto
+
+docker exec --user=magento2 -it magento-auto /bin/bash
+
+
+//////TEST
+docker run -d  --net dockerNet --ip 172.18.0.2 --name magentoTEST magento/magento2devbox-web
+
+
+--- Pasos en limpio
+docker build -t magento-auto .
