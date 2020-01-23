@@ -1,16 +1,9 @@
-docker build -t magento-auto .
+1) Generar la imagen de docker
+docker build -t magento .
 
-sudo docker run -d --net dockerNet --ip 172.18.0.2 --name magento-auto magento-auto
-sudo docker run -d --name magento-auto magento-auto
-
-docker inspect --format '{{ .NetworkSettings.Networks.dockerNet.IPAddress }}' magento-auto
-
-docker exec --user=magento2 -it magento-auto /bin/bash
+2) Ejecutar el contenedor
+docker run -d --name magento magento
 
 
-//////TEST
-docker run -d  --net dockerNet --ip 172.18.0.2 --name magentoTEST magento/magento2devbox-web
-
-
---- Pasos en limpio
-docker build -t magento-auto .
+Importante que este contenedor siempre corra en la IP 172.17.0.3
+El contenedor con modsecurity va a configurar un reverse proxy a esta IP
