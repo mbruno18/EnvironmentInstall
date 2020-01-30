@@ -1,5 +1,5 @@
 1) Generar la imagen de docker
-docker bild -t modsecurity .
+docker build -t modsecurity .
 
 2) Correr un contenedor
 docker run -d --name modsecurity modsecurity
