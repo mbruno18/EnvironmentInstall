@@ -28,7 +28,10 @@ docker run -d -p 33060:3306 --name mysql -e MYSQL_ROOT_PASSWORD=password --mount
 
 5) Entrar al contenedor creado y crear el esquema para la base de datos
 ````
-docker exec -it mysql mysql -p password
+docker exec -it mysql mysql -p
+````
+passwod: password
+````
 create database magento;
 ````
 
