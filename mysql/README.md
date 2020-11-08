@@ -26,11 +26,12 @@ docker volume create mysql-magento-data
 docker run -d -p 33060:3306 --name mysql -e MYSQL_ROOT_PASSWORD=password --mount src=mysql-magento-data,dst=/var/lib/mysql mysql-magento
 ````
 
-5) Entrar al contenedor creado y crear el esquema para la base de datos
+5) Entrar al contenedor creado y crear el esquema para la base de datos. passwod: password
 ````
 docker exec -it mysql mysql -p
 ````
-passwod: password
+Si se obtiene un error porque ya hay una instancia de MySql ejecutando, probar ````/etc/init.d/mysql stop````
+
 ````
 create database magento;
 ````
